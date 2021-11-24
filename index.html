@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Epic Timer</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="timer">
+            <button id="hourUp" onclick="hourUp()">↑</button>
+            <p id="hour">1</p>
+            <button id="hourDown" onclick="hourDown()">↓</button>
+            <p>H</p>
+        </div>
+        <div class="timer">
+            <button id="minuteUp" onclick="minuteUp()">↑</button>
+            <p id="minute">1</p>
+            <button id="minuteDown" onclick="minuteDown()">↓</button>
+            <p>M</p>
+        </div>
+        <div class="timer">
+            <button id="secondUp" onclick="secondUp()">↑</button>
+            <p id="second">1</p>
+            <button id="secondDown" onclick="secondDown()">↓</button>
+            <p>S</p>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <button onclick="startTimer()">START</button>
+    </body>
+</html>

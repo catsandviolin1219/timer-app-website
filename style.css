@@ -1,0 +1,36 @@
+body {
+    background-color: aqua;
+}
+
+.timer button {
+    width: 100px;
+    background-color: rgb(65, 65, 65);
+    color: orange;
+    border-radius: 6px;
+}
+
+.timer p {
+    color: green;
+    border-width: 3px;
+    border-color: rgba(0, 0, 0, 0.459);
+    border-radius: 5px;
+    border-style: solid;
+    padding: 10px;
+}
+
+button {
+    width: 30%;
+    background-color: yellow;
+    color:rgb(32, 32, 32);
+    border-radius: 5px;
+}
+
+.timer {
+    text-align: center;
+    width: 10%;
+    float: left;
+}
+
+.clearfix {
+    clear: both;
+}
