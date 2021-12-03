@@ -1,6 +1,8 @@
 var hours = 1
-var minutes = 1
-var seconds = 1
+var minutes = 1;
+var seconds = 1;
+var intervalId = 1;
+var changing = "none";
 
 function disableButtons() {
     if (hours == 0) {
@@ -55,6 +57,12 @@ function hourDown() {
     document.getElementById("hour").innerHTML = hours.toString();
     disableButtons();
 }
+function hourChange() {
+    document.getElementById("timevaluebox").style.display = "block";
+    document.getElementById("timevalue").value = hours;
+    document.getElementById("timevalue").min = 0;
+    changing = "hours";
+}
 function minuteUp() {
     minutes++;
     document.getElementById("minute").innerHTML = minutes.toString();
@@ -64,6 +72,13 @@ function minuteDown() {
     minutes--;
     document.getElementById("minute").innerHTML = minutes.toString();
     disableButtons();
+}
+function minuteChange() {
+    document.getElementById("timevaluebox").style.display = "block";
+    document.getElementById("timevalue").value = minutes;
+    document.getElementById("timevalue").min = 0;
+    document.getElementById("timevalue").max = 59;
+    changing = "minutes";
 }
 function secondUp() {
     seconds++;
@@ -75,12 +90,46 @@ function secondDown() {
     document.getElementById("second").innerHTML = seconds.toString();
     disableButtons();
 }
+function secondChange() {
+    document.getElementById("timevaluebox").style.display = "block";
+    document.getElementById("timevalue").value = seconds;
+    document.getElementById("timevalue").min = 0;
+    document.getElementById("timevalue").max = 59;
+    changing = "seconds";
+}
+
+function change() {
+    if (changing == "seconds") {
+        seconds = +document.getElementById("timevalue").value;
+        document.getElementById("second").innerHTML = seconds.toString();
+    }
+    if (changing == "hours") {
+        hours = +document.getElementById("timevalue").value;
+        document.getElementById("hour").innerHTML = hours.toString();
+    }
+    if (changing == "minutes") {
+        minutes = +document.getElementById("timevalue").value;
+        document.getElementById("minute").innerHTML = minutes.toString();
+    }
+    document.getElementById("timevaluebox").style.display = "none";
+}
+
+
 
 function countdown() {
     if (seconds == 0) {
         if (minutes == 0) {
             if (hours == 0) {
-                // end code
+                document.getElementById("timeupbox").style.display = "block";
+                var buttons = document.getElementsByTagName('button');
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].style.display = "inline";
+                }
+
+                playAlarm();
+
+                clearInterval(intervalId);
+                disableButtons();
             }
             else {
                 hours--;
@@ -107,5 +156,14 @@ function startTimer() {
         buttons[i].style.display = "none";
     }
 
-    setInterval(countdown, 1000);
+    intervalId = setInterval(countdown, 1000);
+}
+
+function closeModal() {
+    document.getElementById("timeupbox").style.display = "none";
+}
+
+function playAlarm() {
+    var audio = new Audio('alarm.wav');
+    audio.play();
 }

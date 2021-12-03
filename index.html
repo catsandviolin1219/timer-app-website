@@ -11,22 +11,39 @@
             <p id="hour">1</p>
             <button id="hourDown" onclick="hourDown()">↓</button>
             <p>H</p>
+            <button id="hourChange" onclick="hourChange()">...</button>
         </div>
         <div class="timer">
             <button id="minuteUp" onclick="minuteUp()">↑</button>
             <p id="minute">1</p>
             <button id="minuteDown" onclick="minuteDown()">↓</button>
             <p>M</p>
+            <button id="minuteChange" onclick="minuteChange()">...</button>
         </div>
         <div class="timer">
             <button id="secondUp" onclick="secondUp()">↑</button>
             <p id="second">1</p>
             <button id="secondDown" onclick="secondDown()">↓</button>
             <p>S</p>
+            <button id="secondChange" onclick="secondChange()">...</button>
         </div>
 
         <div class="clearfix"></div>
 
         <button onclick="startTimer()">START</button>
+
+        <div class="modal" id="timeupbox">
+            <div class="modal-content">
+                <p>Time's up!</p>
+                <button onclick="closeModal();">I know, stop annoying me!</button>
+            </div>
+        </div>
+        <div class="modal" id="timevaluebox">
+            <div class="modal-content">
+                <label for="timevalue">Time value:</label>
+                <input type="number" id="timevalue" placeholder="Any number...">
+                <button onclick="change()">Done</button>
+            </div>
+        </div>
     </body>
 </html>
